@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+    <title>Student Greeting</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="studentCtrl">
+
+    <label>Enter Student Name :</label>
+    <input type="text" ng-model="studentName">
+
+    <p ng-show="studentName">
+        Welcome {{ studentName }} !
+    </p>
+
+    <script>
+        angular.module("studentApp", [])
+        .controller("studentCtrl", function($scope) {
+            $scope.studentName = "";
+        });
+    </script>
+
+</body>
+</html>
