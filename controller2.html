@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="counterApp">
+<html ng-app="clickApp">
 <head>
-    <title>Counter App</title>
+    <title>Click Counter</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 
-<body ng-controller="counterController">
+<body ng-controller="clickController">
 
-    <h3>Counter Value: {{ count }}</h3>
+    <p>Total Clicks: {{ clicks }}</p>
 
-    <button ng-click="increment()">Click Me</button>
+    <button ng-click="addClick()">Increase Count</button>
 
     <script>
-        var app = angular.module("counterApp", []);
+        var application = angular.module("clickApp", []);
 
-        app.controller("counterController", function($scope) {
-            $scope.count = 0;
+        application.controller("clickController", function($scope) {
+            $scope.clicks = 0;
 
-            $scope.increment = function() {
-                $scope.count++;
+            $scope.addClick = function() {
+                $scope.clicks = $scope.clicks + 1;
             };
         });
     </script>
