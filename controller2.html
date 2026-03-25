@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="clickApp">
+<html ng-app="myClickProject">
 <head>
-    <title>Click Counter</title>
+    <title>Button Counter</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 
-<body ng-controller="clickController">
+<body>
 
-    <p>Total Clicks: {{ clicks }}</p>
+<div ng-controller="mainCtrl">
 
-    <button ng-click="addClick()">Increase Count</button>
+    <h4>You pressed the button {{ total }} times</h4>
 
-    <script>
-        var application = angular.module("clickApp", []);
+    <button ng-click="update(total)">Press</button>
 
-        application.controller("clickController", function($scope) {
-            $scope.clicks = 0;
+</div>
 
-            $scope.addClick = function() {
-                $scope.clicks = $scope.clicks + 1;
-            };
-        });
-    </script>
+<script>
+    angular.module("myClickProject", [])
+    .controller("mainCtrl", function($scope) {
+
+        $scope.total = 0;
+
+        $scope.update = function(value) {
+            $scope.total = value + 1;
+        };
+
+    });
+</script>
 
 </body>
 </html>
