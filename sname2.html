@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="mailCheck">
+<head>
+    <title>Email Validation Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="formCtrl">
+
+    <form name="userForm" novalidate>
+
+        <label>Email :</label>
+        <input type="email" name="emailField" ng-model="userEmail" required>
+
+        <p ng-show="userForm.emailField.$dirty && userForm.emailField.$invalid">
+            Enter a valid email address
+        </p>
+
+        <p ng-show="userForm.emailField.$valid">
+            Email looks correct
+        </p>
+
+    </form>
+
+    <script>
+        angular.module("mailCheck", [])
+        .controller("formCtrl", function($scope) {
+            $scope.userEmail = "";
+        });
+    </script>
+
+</body>
+</html>
